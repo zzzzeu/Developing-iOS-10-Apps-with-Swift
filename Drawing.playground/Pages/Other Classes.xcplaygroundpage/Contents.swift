@@ -1,10 +1,11 @@
+import Foundation
 // NSObject
 //Base class for all Objective-C classes e.g. UIViewController
 //In Swift, no requirement to subclass from NSObject
 
 // NSNumber
 //Generic number-holding class(refernce type)
-let n = NSNumber(35.5)
+let n = NSNumber(value: 35.5)
 let m: NSNumber = 35.5
 let intified: Int = n.intValue //also doubleValue, boolValue, etc.
 
