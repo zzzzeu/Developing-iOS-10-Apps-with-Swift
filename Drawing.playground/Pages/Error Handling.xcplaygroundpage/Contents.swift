@@ -1,6 +1,9 @@
 //methods can throw errors
-func save() throws
+class Context {
+    func save() throws { }
+}
 
+let context = Context()
 do {
     try context.save()
 } catch let error {
