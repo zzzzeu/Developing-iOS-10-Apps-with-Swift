@@ -1,0 +1,6 @@
+//UIDynamicAnimator’s delegate tells you when animation pauses
+//Just set the delegate …
+var delegate: UIDynamicAnimatorDelegate
+//… and you’ll find out when stasis is reached and when animation will resume …
+func dynamicAnimatorDidPause(UIDynamicAnimator)
+func dynamicAnimatorWillResume(UIDynamicAnimator)

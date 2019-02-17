@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' executeOnSourceChanges='false'>
+    <pages>
+        <page name='UIView Animation'/>
+        <page name='UIViewPropertyAnimator'/>
+        <page name='Dynamic Animation'/>
+        <page name='Behaviors'/>
+        <page name='Stasis'/>
+        <page name='Memory Cycle Avoidance'/>
+    </pages>
+</playground>
