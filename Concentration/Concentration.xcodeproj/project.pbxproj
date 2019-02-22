@@ -14,6 +14,7 @@
 		D41A1A71217483BD0000C3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A1A6F217483BD0000C3B0 /* LaunchScreen.storyboard */; };
 		D41A1A7C217483BD0000C3B0 /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A1A7B217483BD0000C3B0 /* ConcentrationTests.swift */; };
 		D41A1A87217483BD0000C3B0 /* ConcentrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A1A86217483BD0000C3B0 /* ConcentrationUITests.swift */; };
+		D41A9A09221E936000BAFA7C /* VCLLoggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A9A08221E936000BAFA7C /* VCLLoggingViewController.swift */; };
 		D41CCE6A22156B2400241AE3 /* ConcentrationThemeChooserViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41CCE6922156B2400241AE3 /* ConcentrationThemeChooserViewControlle.swift */; };
 		D43D909F217DB6F50063D547 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43D909E217DB6F50063D547 /* Concentration.swift */; };
 		D43D90A1217DB7720063D547 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43D90A0217DB7720063D547 /* card.swift */; };
@@ -50,6 +51,7 @@
 		D41A1A82217483BD0000C3B0 /* ConcentrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcentrationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41A1A86217483BD0000C3B0 /* ConcentrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationUITests.swift; sourceTree = "<group>"; };
 		D41A1A88217483BD0000C3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D41A9A08221E936000BAFA7C /* VCLLoggingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLLoggingViewController.swift; sourceTree = "<group>"; };
 		D41CCE6922156B2400241AE3 /* ConcentrationThemeChooserViewControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationThemeChooserViewControlle.swift; sourceTree = "<group>"; };
 		D43D909E217DB6F50063D547 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		D43D90A0217DB7720063D547 /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		D41A1A65217483BB0000C3B0 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				D41A9A08221E936000BAFA7C /* VCLLoggingViewController.swift */,
 				D41CCE6922156B2400241AE3 /* ConcentrationThemeChooserViewControlle.swift */,
 				D41A1A68217483BB0000C3B0 /* ConcentrationViewController.swift */,
 				D43D909E217DB6F50063D547 /* Concentration.swift */,
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41A9A09221E936000BAFA7C /* VCLLoggingViewController.swift in Sources */,
 				D41A1A69217483BB0000C3B0 /* ConcentrationViewController.swift in Sources */,
 				D41CCE6A22156B2400241AE3 /* ConcentrationThemeChooserViewControlle.swift in Sources */,
 				D43D909F217DB6F50063D547 /* Concentration.swift in Sources */,
