@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D40B228F221FD8B800BD1D94 /* DemoURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B228E221FD8B800BD1D94 /* DemoURLs.swift */; };
 		D40B2291221FE00B00BD1D94 /* p.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D40B2290221FE00B00BD1D94 /* p.jpg */; };
+		D40B2293222182D600BD1D94 /* CassiniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40B2292222182D600BD1D94 /* CassiniViewController.swift */; };
 		D4F6D3B7221EB1CA002AD750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6D3B6221EB1CA002AD750 /* AppDelegate.swift */; };
 		D4F6D3BC221EB1CA002AD750 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F6D3BA221EB1CA002AD750 /* Main.storyboard */; };
 		D4F6D3BE221EB1CC002AD750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F6D3BD221EB1CC002AD750 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		D40B228E221FD8B800BD1D94 /* DemoURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoURLs.swift; sourceTree = "<group>"; };
 		D40B2290221FE00B00BD1D94 /* p.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p.jpg; sourceTree = "<group>"; };
+		D40B2292222182D600BD1D94 /* CassiniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CassiniViewController.swift; sourceTree = "<group>"; };
 		D4F6D3B3221EB1CA002AD750 /* Cassini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cassini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F6D3B6221EB1CA002AD750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4F6D3BB221EB1CA002AD750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				D4F6D3BA221EB1CA002AD750 /* Main.storyboard */,
+				D40B2292222182D600BD1D94 /* CassiniViewController.swift */,
 				D40B228E221FD8B800BD1D94 /* DemoURLs.swift */,
 				D4F6D3C9221EB2A9002AD750 /* ImageViewController.swift */,
 				D40B2290221FE00B00BD1D94 /* p.jpg */,
@@ -153,6 +156,7 @@
 				D4F6D3CA221EB2A9002AD750 /* ImageViewController.swift in Sources */,
 				D40B228F221FD8B800BD1D94 /* DemoURLs.swift in Sources */,
 				D4F6D3B7221EB1CA002AD750 /* AppDelegate.swift in Sources */,
+				D40B2293222182D600BD1D94 /* CassiniViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
