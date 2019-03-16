@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' executeOnSourceChanges='false'>
+    <pages>
+        <page name='UserDefaults'/>
+        <page name='Archiving and Codable'/>
+        <page name='Filesystem'/>
+        <page name='Core Data'/>
+        <page name='UIDocument'/>
+    </pages>
+</playground>
