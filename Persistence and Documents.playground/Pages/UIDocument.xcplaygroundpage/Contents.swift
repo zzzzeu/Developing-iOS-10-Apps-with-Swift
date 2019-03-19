@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 //When to use UIDocument
 //If your application stores user information in a way the user perceives as a “document”.
@@ -111,3 +111,104 @@ url = url.appendingPathComponent("Untitled.foo")
 //        return attributes
 //}
 //It does not have to be 1024x1024 (it seems to have a minimum size, not sure what).
+
+//      UIDocumentBrowserViewController
+
+//Managing user documents
+//You probably want users to be able to easily manage their documents in a document-based app.
+//Choosing files to open, renaming files, moving them, accessing iCloud drive, etc.
+//The UIDocumentBrowserViewController (UIDBVC) does all of this for you.
+//Using UIDocument to store your document makes leveraging this UIDBVC easy.
+
+//It has to be the root view controller in your storyboard
+//Your document-editing MVC will then be presented modally on top of (i.e. takes over the screen).
+
+//To use the UIDBVC, you have to register which types your application uses.
+//You do this in the Project Settings in the Info tab with your Target selected.
+//Declaring your own document type
+//You might have a custom document type that your application edits
+//You can add this under Exported UTIs in the same place in Project Settings
+
+//Opening documents at the request of other apps (including Files)
+//A user can now click on a document of your type in Files (or another app can ask to open one)
+//When this happens, your AppDelegate gets a message sent to it …
+    func application(_: UIApplication, open: URL, options: [UIApplication.OpenURLOptionsKey:Any]) -> Bool { return true }
+//We haven’t discussed the AppDelegate yet, but it’s just a swift file with some methods in it.
+//Inside here, you can ask your UIDocumentBrowserViewController to show this document …
+//let uidbvc = window?.rootViewController as? UIDocumentBrowserViewController // since it’s “arrowed” in storyboard
+//uidbvc.revealDocument(at: URL, importIfNeeded: true) { (url, error) in
+//    if error != nil {
+//        // present a UIDocument at url modally (more on how to do this in a moment)
+//    } else {
+//        // handle the error
+//    }
+//}
+
+//Xcode template
+//an Xcode template exists to do all of the above configuration for us
+
+//What is in the template?
+//A stub for Document Types in Project Settings (supports public.image file types)
+//The Info.plist entry Supports Document Browser = YES
+//The code in AppDelegate to reveal a document
+//A stubbed out UIDocument subclass (with empty contents and load(fromContents) methods)
+//A stubbed out MVC to display a document (just calls UIDocument’s open and close methods)
+//A subclass of UIDocumentBrowserViewController (with almost everything implemented)
+
+//What you need to do …
+//1. Use your UIDocument subclass instead of the stubbed out one
+//2. Use your document-viewing MVC code (already using UIDocument) instead of stub
+//3. Add code to UIDBVC subclass to …
+//a. configure the UIDBVC (allow multiple selection? creation of new documents? etc.)
+//b. specify the url of a template document to copy to create new documents
+//c. present your document-viewing MVC modally given the url of a document
+//4. Update the Document Types in Project Settings to be your types (instead of public.image)
+
+//Step 3a: Configuring the UIDBVC
+//This happens in its viewDidLoad …
+//override func viewDidLoad() {
+//    super.viewDidLoad()
+//    delegate = self // the guts of making UIDBVC work are in its delegate methods
+//    allowsDocumentCreation = true
+//    allowsPickingMultipleItems = true
+//    browserUserInterfaceStyle = .dark
+//    view.tintColor = .white
+//}
+
+//Steps 3b: Specifying the “new document” template URL
+//This happens in this UIDBVC delegate method …
+//func documentBrowser(_ controller: UIDBVC,
+//                     didRequestDocumentCreationWithHandler handler: @escaping (URL?, UIDBVC.ImportMode) -> Void
+//    ) {
+//    let url: URL? = … // where your blank, template document can be found
+//        importHandler(url, .copy or .move)
+//}
+//Usually you would specify .copy, but you could create a new template each time and .move.
+//Likely you would have some code here that creates that blank template (or ship with your app).
+
+//Aside: Presenting an MVC without segueing
+//We haven’t covered how to present MVCs in any other way except by segueing.
+//So let’s cover it now!
+//It’s very easy. You present a new MVC from an existing MVC using present(animated:) …
+//let newVC: UIViewController = …
+//    existingVC.present(newVC, animated: true) {
+//        // completion handler called when the presentation completes animating
+//        // (can be left out entirely if you don’t need to do anything upon completion)
+//}
+//The real trick is “where do I get newMVC from?”
+//Answer: you get it from your storyboard using its identifier which you set in Identity Inspector
+//let storyboard = UIStoryboard(name: “Main”, bundle: nil) // Main.storyboard
+//if let newVC = storyboard.instantiateViewController(withIdentifier: “foo”) as? MyDocVC {
+//    “prepare” newMVC and then present(animated:) it
+//}
+
+//Steps 3c: Presenting your document MVC modally
+//The Xcode template stubs out a function called presentDocument(at: URL) to do this …
+//func presentDocument(at url: URL) {
+//    let story = UIStoryboard(name: “Main”, bundle: nil)
+//    if let docvc = story.instantiateViewController(withIdentifier: “DocVC”) as? DocVC {
+//        docvc.document = MyDocument(fileURL: url)
+//        present(docvc, animated: true)
+//    }
+//}
+
