@@ -50,41 +50,77 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
         }
     }
     
+    var document: EmojiArtDocument?
+    
     @IBAction func save(_ sender: UIBarButtonItem? = nil) {
-        if let json = emojiArt?.json {
-//            if let jsonString = String(data: json, encoding: .utf8) {
-//                print(jsonString)
+//        if let json = emojiArt?.json {
+////            if let jsonString = String(data: json, encoding: .utf8) {
+////                print(jsonString)
+////            }
+//            if let url = try? FileManager.default.url(
+//                for: .documentDirectory,
+//                in: .userDomainMask,
+//                appropriateFor: nil,
+//                create: true
+//            ).appendingPathComponent("Untitled.json") {
+//                do {
+//                    try json.write(to: url)
+//                    print("saved successfully!")
+//                } catch let error {
+//                    print("couldn't save \(error)")
+//                }
 //            }
-            if let url = try? FileManager.default.url(
-                for: .documentDirectory,
-                in: .userDomainMask,
-                appropriateFor: nil,
-                create: true
-            ).appendingPathComponent("Untitled.json") {
-                do {
-                    try json.write(to: url)
-                    print("saved successfully!")
-                } catch let error {
-                    print("couldn't save \(error)")
-                }
-            }
+//        }
+        document?.emojiArt = emojiArt
+        if document?.emojiArt != nil {
+            document?.updateChangeCount(.done)
+        }
+        
+    }
+    
+    @IBAction func close(_ sender: UIBarButtonItem) {
+        save()
+        if document?.emojiArt != nil {
+            document?.thumbnail = emojiArtView.snapshot
+        }
+        dismiss(animated: true) {
+            self.document?.close()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let url = try? FileManager.default.url(
-            for: .documentDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true
-        ).appendingPathComponent("Untitled.json") {
-            if let jsonData = try? Data(contentsOf: url) {
-                emojiArt = EmojiArt(json: jsonData)
+//        if let url = try? FileManager.default.url(
+//            for: .documentDirectory,
+//            in: .userDomainMask,
+//            appropriateFor: nil,
+//            create: true
+//        ).appendingPathComponent("Untitled.json") {
+//            if let jsonData = try? Data(contentsOf: url) {
+//                emojiArt = EmojiArt(json: jsonData)
+//            }
+//        }
+        
+        document?.open { success in
+            if success {
+                self.title = self.document?.localizedName
+                self.emojiArt = self.document?.emojiArt
             }
         }
     }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        if let url = try? FileManager.default.url(
+//            for: .documentDirectory,
+//            in: .userDomainMask,
+//            appropriateFor: nil,
+//            create: true
+//        ).appendingPathComponent("Untitled.json") {
+//            document = EmojiArtDocument(fileURL: url)
+//        }
+//    }
     
     // MARK: - Storyboard
     
@@ -146,6 +182,7 @@ class EmojiArtViewController: UIViewController, UIDropInteractionDelegate, UIScr
             emojiCollectionView.delegate = self
             emojiCollectionView.dragDelegate = self
             emojiCollectionView.dropDelegate = self
+            emojiCollectionView .dragInteractionEnabled = true
         }
     }
     
